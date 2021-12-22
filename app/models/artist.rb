@@ -4,6 +4,6 @@ class Artist < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :manage, presence: true
-  validates :record, presence: true
+  validates :recording, presence: true
   validates :quote, length: { maximum: 120 }
 end
