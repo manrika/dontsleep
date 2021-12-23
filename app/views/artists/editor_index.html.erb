@@ -1,0 +1,12 @@
+<h1>Artists</h1>
+
+<%= link_to "New artist", editor_artists_new_path %>
+
+<% @artists.each do |artist| %>
+  <div>
+    <%= artist.name %>
+    <%# INSERT artist image %>
+    <%= "MANAGE" if artist.manage %>
+    <%= "RECORD" if artist.recording %>
+  </div>
+<% end %>

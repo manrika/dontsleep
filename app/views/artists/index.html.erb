@@ -1,0 +1,24 @@
+<h1>Artists</h1>
+
+<% @artists.each do |artist| %>
+  <div>
+    <%= artist.name %>
+    <%# INSERT artist image %>
+    <%= "MANAGE" if artist.manage %>
+    <%= "RECORD" if artist.recording %>
+    <% if artist.spotify %>
+      <%= link_to artist.spotify, target: :blank do %>
+        <i class="fab fa-spotify"></i>
+      <% end %>
+    <% end %>
+    <% if artist.instagram %>
+      <%= link_to artist.instagram, target: :blank do %>
+        <i class="fab fa-instagram"></i>
+      <% end %>
+    <% end %>
+    <% if artist.quote %>
+      <%=  artist.quote %>
+      <%= artist.quoted_by %>
+    <% end %>
+  </div>
+<% end %>

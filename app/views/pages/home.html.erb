@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h4>Newest artists</h4>
+
+<% @new_artists.each do |artist| %>
+  <div>
+    <%= artist.name %>
+    <%# INSERT artist image %>
+    <% if artist.spotify %>
+      <%= link_to artist.spotify, target: :blank do %>
+        <i class="fab fa-spotify"></i>
+      <% end %>
+    <% end %>
+    <% if artist.instagram %>
+      <%= link_to artist.instagram, target: :blank do %>
+        <i class="fab fa-instagram"></i>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

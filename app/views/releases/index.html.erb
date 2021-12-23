@@ -1,0 +1,18 @@
+<h1>Releases</h1>
+
+<% @releases.each do |release| %>
+  <div>
+    <%= release.artist.name %>
+    <%= release.track_title %>
+    <%# INSERT release image %>
+    <% if release.spotify %>
+      <%= link_to release.spotify, target: :blank do %>
+        <i class="fab fa-spotify"></i>
+      <% end %>
+    <% end %>
+    <%# MAYBE INSERT spotify embed %>
+    <%# INSERT apple music icon if statement %>
+    <%# INSERT tidal music icon if statement %>
+    <%# INSERT amazon music icon if statement %>
+  </div>
+<% end %>
