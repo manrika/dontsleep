@@ -1,11 +1,11 @@
-<h1>Edit <%= @release.track_title %></h1>
+<h1>Create new release</h1>
 
-<%= simple_form_for @release, url: update_release_path(@release) do |f| %>
+<%= simple_form_for @release, url: create_release_path do |f| %>
   <%= f.input :track_title  %>
   <%= f.input :artist_name %>
   <%= f.input :spotify  %>
   <%= f.input :apple  %>
   <%= f.input :tidal  %>
   <%= f.input :amazon  %>
-  <%= f.submit value: "Save" %>
+  <%= f.submit value: "Create" %>
 <% end %>

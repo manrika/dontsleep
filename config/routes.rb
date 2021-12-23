@@ -10,18 +10,18 @@ Rails.application.routes.draw do
 
   get '/editor/artists', to: 'artists#editor_index'
   get '/editor/artists/new', to: 'artists#new'
-  post '/editor/artists', to: 'artists#create'
+  post '/editor/artists', to: 'artists#create', as: :create_artist
   get '/editor/artists/:id', to: 'artists#show', as: :show_artist # can probably delete
   get '/editor/artists/:id/edit', to: 'artists#edit', as: :edit_artist
-  patch '/editor/artists/:id', to: 'artists#update'
-  delete '/editor/artists/:id', to: 'artists#destroy'
+  patch '/editor/artists/:id', to: 'artists#update', as: :update_artist
+  delete '/editor/artists/:id', to: 'artists#destroy', as: :delete_artist
 
   get '/editor/releases', to: 'releases#editor_index'
   get '/editor/releases/new', to: 'releases#new'
-  post '/editor/releases', to: 'releases#create'
+  post '/editor/releases', to: 'releases#create', as: :create_release
   get '/editor/releases/:id', to: 'releases#show', as: :show_release # can probably delete
   get '/editor/releases/:id/edit', to: 'releases#edit', as: :edit_release
   patch '/editor/releases/:id', to: 'releases#update', as: :update_release
-  delete '/editor/releases/:id', to: 'releases#destroy'
+  delete '/editor/releases/:id', to: 'releases#destroy', as: :delete_release
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

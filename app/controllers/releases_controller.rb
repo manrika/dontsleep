@@ -1,5 +1,6 @@
 class ReleasesController < ApplicationController
   before_action :all_releases, only: [ :index, :editor_index ]
+  before_action :find_release, only: [ :edit, :update, :destroy ]
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
@@ -8,17 +9,24 @@ class ReleasesController < ApplicationController
   def editor_index
   end
 
-  def edit
-    @release = Release.find(params[:id])
-    @artist_names = [].sort
+  def new
+    @release = Release.new
+  end
 
-    Artist.all.each do |artist|
-      @artist_names << artist.name
+  def create
+    @release = Release.new(release_params)
+    @release.user = current_user
+    if @release.save
+      redirect_to editor_releases_path
+    else
+      render :new
     end
   end
 
+  def edit
+  end
+
   def update
-    @release = Release.find(params[:id])
     if @release.update(release_params)
       redirect_to editor_releases_path
     else
@@ -26,10 +34,20 @@ class ReleasesController < ApplicationController
     end
   end
 
+  def destroy
+    @release.destroy!
+    redirect_to editor_releases_path
+  end
+
+  private
+
   def all_releases
     @releases = Release.all.sort_by(&:id).reverse
   end
 
+  def find_release
+    @release = Release.find(params[:id])
+  end
 
   def release_params
     params.require(:release).permit(:track_title, :artist_name, :spotify, :apple, :tidal, :amazon)

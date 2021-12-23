@@ -5,13 +5,17 @@
     <%= artist.name %>
     <%# INSERT artist image %>
     <% if artist.spotify %>
-      <%= link_to artist.spotify, target: :blank do %>
-        <i class="fab fa-spotify"></i>
+      <% if artist.spotify.length > 0 %>
+        <%= link_to artist.spotify, target: :blank do %>
+          <i class="fab fa-spotify"></i>
+        <% end %>
       <% end %>
     <% end %>
     <% if artist.instagram %>
-      <%= link_to artist.instagram, target: :blank do %>
-        <i class="fab fa-instagram"></i>
+      <% if artist.instagram.length > 0 %>
+        <%= link_to artist.instagram, target: :blank do %>
+          <i class="fab fa-instagram"></i>
+        <% end %>
       <% end %>
     <% end %>
   </div>

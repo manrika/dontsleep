@@ -8,5 +8,7 @@
     <%# INSERT artist image %>
     <%= "MANAGE" if artist.manage %>
     <%= "RECORD" if artist.recording %>
+    <%= link_to "edit", edit_artist_path(artist) %>
+    <%= link_to "delete", delete_artist_path(artist), method: :delete, data: { confirm: 'Do you really want to delete?' } %>
   </div>
 <% end %>

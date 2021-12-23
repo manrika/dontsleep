@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_23_164040) do
+ActiveRecord::Schema.define(version: 2021_12_23_193834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_12_23_164040) do
     t.text "tidal"
     t.text "amazon"
     t.bigint "user_id", null: false
-    t.bigint "artist_id", null: false
+    t.bigint "artist_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "artist_name"

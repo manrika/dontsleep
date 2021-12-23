@@ -7,6 +7,7 @@
     <%= release.artist_name %>
     <%= release.track_title %>
     <%= link_to "edit", edit_release_path(release) %>
+    <%= link_to "delete", delete_release_path(release), method: :delete, data: { confirm: 'Do you really want to delete?' } %>
     <%# INSERT release image %>
   </div>
 <% end %>
