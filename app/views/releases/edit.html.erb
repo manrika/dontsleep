@@ -1,12 +1,11 @@
 <h1>Edit <%= @release.track_title %></h1>
 
-<%= simple_form_for @release, :url => editor_releases_path do |f| %>
+<%= simple_form_for @release, :url => update_release_path(@release) do |f| %>
   <%= f.input :track_title  %>
+  <%= f.input :artist_name %>
   <%= f.input :spotify  %>
   <%= f.input :apple  %>
   <%= f.input :tidal  %>
   <%= f.input :amazon  %>
-  <%# MAKE artist dropdown with list of all artists, pre-select release's artist %>
-  <%= f.input :artist %>
   <%= f.submit value: "Save" %>
 <% end %>

@@ -4,7 +4,7 @@
 
 <% @releases.each do |release| %>
   <div>
-    <%= release.artist.name %>
+    <%= release.artist_name %>
     <%= release.track_title %>
     <%= link_to "edit", edit_release_path(release) %>
     <%# INSERT release image %>

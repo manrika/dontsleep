@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   post '/editor/releases', to: 'releases#create'
   get '/editor/releases/:id', to: 'releases#show', as: :show_release # can probably delete
   get '/editor/releases/:id/edit', to: 'releases#edit', as: :edit_release
-  patch '/editor/releases/:id', to: 'releases#update'
+  patch '/editor/releases/:id', to: 'releases#update', as: :update_release
   delete '/editor/releases/:id', to: 'releases#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
