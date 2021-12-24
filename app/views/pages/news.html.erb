@@ -1,1 +1,17 @@
 <h1>News</h1>
+
+  <div id="instafeed-container"></div>
+
+
+
+	<script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+	<script type="text/javascript">
+	var userFeed = new Instafeed({
+		get: 'user',
+		target: "instafeed-container",
+    	resolution: 'low_resolution',
+      // UPDATE access token to linke to dontsleep's instagram
+		accessToken: 'IGQVJWM04wWHgydmtzR0pGRTN1SEo0anVnNWkyWUU1X2dvaDcxTjE3Q1VMbUJ4ZAm1oNmlEWjJ5VXlwbDBfTktlU0RLcmpMOERIVVhjZADI1SWcweHdKcUlUM2hnZA0pERFFYSHZATRDB3TFNBcngxcG1qNwZDZD'
+	});
+	userFeed.run();
+	</script>
