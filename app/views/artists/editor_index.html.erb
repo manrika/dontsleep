@@ -5,7 +5,7 @@
 <% @artists.each do |artist| %>
   <div>
     <%= artist.name %>
-    <%# INSERT artist image %>
+    <%= cl_image_tag artist.photo.key, height: 300, width: 400, crop: :fill if artist.photo.attached? %>
     <%= "MANAGE" if artist.manage %>
     <%= "RECORD" if artist.recording %>
     <%= link_to "edit", edit_artist_path(artist) %>

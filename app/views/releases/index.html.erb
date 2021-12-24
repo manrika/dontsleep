@@ -4,7 +4,7 @@
   <div>
     <%= release.artist_name %>
     <%= release.track_title %>
-    <%# INSERT release image %>
+    <%= cl_image_tag release.photo.key, height: 300, width: 400, crop: :fill if release.photo.attached? %>
     <% if release.spotify %>
       <% if release.spotify.length > 0 %>
         <%= link_to release.spotify, target: :blank do %>

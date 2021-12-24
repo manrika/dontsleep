@@ -8,6 +8,6 @@
     <%= release.track_title %>
     <%= link_to "edit", edit_release_path(release) %>
     <%= link_to "delete", delete_release_path(release), method: :delete, data: { confirm: 'Do you really want to delete?' } %>
-    <%# INSERT release image %>
+    <%= cl_image_tag release.photo.key, height: 300, width: 400, crop: :fill if release.photo.attached? %>
   </div>
 <% end %>

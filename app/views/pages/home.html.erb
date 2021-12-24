@@ -3,7 +3,7 @@
 <% @new_artists.each do |artist| %>
   <div>
     <%= artist.name %>
-    <%# INSERT artist image %>
+    <%= cl_image_tag artist.photo.key, height: 300, width: 400, crop: :fill if artist.photo.attached? %>
     <% if artist.spotify %>
       <% if artist.spotify.length > 0 %>
         <%= link_to artist.spotify, target: :blank do %>

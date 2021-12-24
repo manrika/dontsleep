@@ -50,7 +50,7 @@ class ArtistsController < ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :quote, :manage, :recording, :spotify, :instagram, :quoted_by)
+    params.require(:artist).permit(:name, :quote, :manage, :recording, :spotify, :instagram, :quoted_by, :photo)
   end
 
 end
