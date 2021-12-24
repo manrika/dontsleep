@@ -11,3 +11,16 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.page-layout {
+  margin: 3% 6% 3% 6%;
+}
+
+body {
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-bottom: 24px;
+  font-weight: bolder;
+}
