@@ -1,0 +1,19 @@
+.release-card {
+  display: flex;
+  border: 4px solid salmon;
+  margin-bottom: 12px; //delete this after
+}
+
+.release-details {
+  font-weight: bolder;
+  font-size: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 56px 42px;
+
+  p {
+    margin-bottom: 42px;
+  }
+}

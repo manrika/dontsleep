@@ -1,20 +1,25 @@
-<h1>Releases</h1>
 
-<% @releases.each do |release| %>
-  <div>
-    <%= release.artist_name %>
-    <%= release.track_title %>
-    <%= cl_image_tag release.photo.key, height: 300, width: 400, crop: :fill if release.photo.attached? %>
-    <% if release.spotify %>
-      <% if release.spotify.length > 0 %>
-        <%= link_to release.spotify, target: :blank do %>
-          <i class="fab fa-spotify"></i>
+<div class="page-layout" >
+  <h1 style="color: rgba(242, 86, 101, 0.79)">Releases</h1>
+
+  <% @releases.each do |release| %>
+    <div class="release-card">
+      <%= cl_image_tag release.photo.key, height: 600, width: 600 if release.photo.attached? %>
+      <div class="release-details">
+        <p><%= release.artist_name %></p>
+        <p><%= release.track_title %></p>
+        <% if release.spotify %>
+          <% if release.spotify.length > 0 %>
+            <%= link_to release.spotify, target: :blank do %>
+              <i class="fab fa-spotify"></i>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    <% end %>
-    <%# MAYBE INSERT spotify embed %>
-    <%# INSERT apple music icon if statement %>
-    <%# INSERT tidal music icon if statement %>
-    <%# INSERT amazon music icon if statement %>
-  </div>
-<% end %>
+      </div>
+      <%# MAYBE INSERT spotify embed %>
+      <%# INSERT apple music icon if statement %>
+      <%# INSERT tidal music icon if statement %>
+      <%# INSERT amazon music icon if statement %>
+    </div>
+  <% end %>
+</div>
