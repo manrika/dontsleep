@@ -3,21 +3,22 @@
   <h1 style="color: rgba(242, 86, 101, 0.79)">Releases</h1>
 
   <% @releases.each do |release| %>
-    <div class="release-card">
+    <% color = @colors.sample %>
+    <div class="release-card" style="border: 4px solid rgba(<%= color %>)">
       <%= cl_image_tag release.photo.key if release.photo.attached? %>
       <div class="release-details">
-        <div class="release-text">
+        <div class="text-highlighted">
           <p><%= release.artist_name %></p>
-          <div class="underline"></div>
+          <div class="underline" style="background-color: rgba(<%= color %>)"></div>
         </div>
-        <div class="release-text">
+        <div class="text-highlighted">
           <p><%= release.track_title %></p>
-          <div class="underline"></div>
+          <div class="underline" style="background-color: rgba(<%= color %>)"></div>
         </div>
         <% if release.spotify %>
           <% if release.spotify.length > 0 %>
             <%= link_to release.spotify, target: :blank do %>
-              <i class="fab fa-spotify"></i>
+              <i class="fab fa-spotify" style="color: rgba(<%= color %>)"></i>
             <% end %>
           <% end %>
         <% end %>

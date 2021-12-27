@@ -1,5 +1,6 @@
 class ReleasesController < ApplicationController
   before_action :all_releases, only: [ :index, :editor_index ]
+  before_action :rand_color, only: [ :index, :editor_index ]
   before_action :find_release, only: [ :edit, :update, :destroy ]
   skip_before_action :authenticate_user!, only: [ :index ]
 
@@ -47,6 +48,10 @@ class ReleasesController < ApplicationController
 
   def find_release
     @release = Release.find(params[:id])
+  end
+
+  def rand_color
+    @colors = ["56, 176, 208, 1", "151, 124, 186, 1", "242, 86, 101, 0.79", "112, 198, 171, 1", "246, 192, 48, 1"]
   end
 
   def release_params

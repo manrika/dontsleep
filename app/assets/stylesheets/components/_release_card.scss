@@ -1,8 +1,6 @@
 .release-card {
   display: flex;
-  border: 4px solid salmon;
   height: fit-content;
-  margin-bottom: 12px; //delete this after
 }
 
 .release-details {
@@ -18,14 +16,7 @@
   }
 }
 
-.release-text {
-  margin-bottom: 42px;
-
-  p {
-    margin-bottom: 0px;
-  }
-}
-
+// Small-Medium screen
 @media only screen and (max-width: 800px) {
   .release-card {
     flex-direction: column;
@@ -38,12 +29,13 @@
   .release-details {
     padding: 24px;
 
-    .release-text, i {
+    .text-highlighted, i {
       margin-bottom: 24px;
     }
   }
 }
 
+// Medium-Large screen
 @media only screen and (min-width: 800px) {
   .release-card {
     flex-direction: row;
@@ -61,21 +53,8 @@
     overflow-y: scroll;
     padding: 56px 42px;
 
-    .release-text, i {
+    .text-highlighted, i {
       margin-bottom: 42px;
     }
   }
 }
-
-
-
-
-// Mobile keep as is (need to decide up to which width)
-
-// After mobile make vh img and details 70vh
-
-// Try changing underline on mobile view only
-
-// Move underline and text to it's own component
-
-// Refactor img

@@ -1,5 +1,12 @@
 .underline {
-  background-color: salmon;
   height: 8px;
   width: 42px;
+}
+
+.text-highlighted {
+  margin-bottom: 42px;
+
+  p {
+    margin-bottom: 0px;
+  }
 }
