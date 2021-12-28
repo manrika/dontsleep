@@ -1,0 +1,34 @@
+#pills-tab .nav-link {
+  font-weight: bolder;
+  font-size: 24px;
+  text-transform: uppercase;
+
+  &:hover {
+    p {
+    color: rgba(151, 124, 186, 1)
+    }
+  }
+}
+
+#pills-tab a {
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.active {
+  .tab-underline {
+    height: 8px;
+    background-color: rgba(151, 124, 186, 1)
+  }
+  p {
+    color: black;
+  }
+}
+
+#pills-home-tab {
+  padding-left: 0px;
+}
