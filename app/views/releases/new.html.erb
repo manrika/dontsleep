@@ -3,7 +3,8 @@
 <%= simple_form_for @release, url: create_release_path do |f| %>
   <%= f.input :track_title  %>
   <%= f.input :artist_name %>
-  <%= f.input :spotify  %>
+  <%= f.input :spotify_link  %>
+  <%= f.input :spotify_embed  %>
   <%= f.input :apple  %>
   <%= f.input :tidal  %>
   <%= f.input :amazon  %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_24_083730) do
+ActiveRecord::Schema.define(version: 2021_12_28_103034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_12_24_083730) do
 
   create_table "releases", force: :cascade do |t|
     t.string "track_title"
-    t.text "spotify"
+    t.text "spotify_link"
     t.text "apple"
     t.text "tidal"
     t.text "amazon"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_12_24_083730) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "artist_name"
+    t.text "spotify_embed"
     t.index ["artist_id"], name: "index_releases_on_artist_id"
     t.index ["user_id"], name: "index_releases_on_user_id"
   end

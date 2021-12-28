@@ -55,6 +55,6 @@ class ReleasesController < ApplicationController
   end
 
   def release_params
-    params.require(:release).permit(:track_title, :artist_name, :spotify, :apple, :tidal, :amazon, :photo)
+    params.require(:release).permit(:track_title, :artist_name, :spotify, :spotify_embed, :apple, :tidal, :amazon, :photo)
   end
 end
