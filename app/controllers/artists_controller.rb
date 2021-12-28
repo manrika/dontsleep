@@ -4,6 +4,8 @@ class ArtistsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
+    @recording_artists = Artist.where(recording: true).sort_by(&:id).reverse
+    @managing_artists = Artist.where(manage: true).sort_by(&:id).reverse
   end
 
   def editor_index

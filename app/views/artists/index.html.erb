@@ -22,37 +22,14 @@
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><p>ONE</p></div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><p>TWO</p></div>
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><p>THREE</p></div>
-  </div>
-
-
-
-  <% @artists.each do |artist| %>
-    <div>
-      <%= artist.name %>
-      <%= cl_image_tag artist.photo.key, height: 300, width: 400, crop: :fill if artist.photo.attached? %>
-      <%= "MANAGE" if artist.manage %>
-      <%= "RECORD" if artist.recording %>
-      <% if artist.spotify %>
-        <% if artist.spotify.length > 0 %>
-          <%= link_to artist.spotify, target: :blank do %>
-            <i class="fab fa-spotify"></i>
-          <% end %>
-        <% end %>
-      <% end %>
-      <% if artist.instagram %>
-        <% if artist.instagram.length > 0 %>
-          <%= link_to artist.instagram, target: :blank do %>
-            <i class="fab fa-instagram"></i>
-          <% end %>
-        <% end %>
-      <% end %>
-      <% if artist.quote %>
-        <%= artist.quote if artist.quote.length > 0 %>
-        <%= artist.quoted_by if artist.quoted_by.length > 0 %>
-      <% end %>
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <%= render 'artist_list', artists: @artists %>
     </div>
-  <% end %>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <%= render 'artist_list', artists: @recording_artists %>
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+      <%= render 'artist_list', artists: @managing_artists %>
+    </div>
+  </div>
 </div>

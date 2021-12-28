@@ -1,0 +1,23 @@
+.front-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front-card img {
+  width: 100%;
+  filter: grayscale(40%);
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
+
+
+.front-card p {
+  position: absolute;
+  font-weight: bolder;
+  font-size: 24px;
+  color: white;
+  z-index: 1;
+}
