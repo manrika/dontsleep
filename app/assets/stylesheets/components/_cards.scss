@@ -1,7 +1,16 @@
+.artists-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px;
+}
+
 .front-card {
   display: flex;
+  flex-grow: 1;
   align-items: center;
   justify-content: center;
+  width: 50vh;
 }
 
 .front-card img {

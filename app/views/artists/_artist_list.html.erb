@@ -1,26 +1,28 @@
-<% artists.each do |artist| %>
-  <div class="front-card">
-    <p><%= artist.name %></p>
-    <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
-    <%# <%= "MANAGE" if artist.manage %>
-    <%# <%= "RECORD" if artist.recording %>
-    <%# if artist.spotify %>
-      <%# if artist.spotify.length > 0 %>
-        <%#= link_to artist.spotify, target: :blank do %>
-          <%# <i class="fab fa-spotify"></i> %>
+<div class="artists-list">
+  <% artists.each do |artist| %>
+    <div class="front-card">
+      <p><%= artist.name %></p>
+      <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
+      <%# <%= "MANAGE" if artist.manage %>
+      <%# <%= "RECORD" if artist.recording %>
+      <%# if artist.spotify %>
+        <%# if artist.spotify.length > 0 %>
+          <%#= link_to artist.spotify, target: :blank do %>
+            <%# <i class="fab fa-spotify"></i> %>
+          <%# end %>
         <%# end %>
       <%# end %>
-    <%# end %>
-    <%# if artist.instagram %>
-      <%# if artist.instagram.length > 0 %>
-        <%#= link_to artist.instagram, target: :blank do %>
-          <%# <i class="fab fa-instagram"></i> %>
+      <%# if artist.instagram %>
+        <%# if artist.instagram.length > 0 %>
+          <%#= link_to artist.instagram, target: :blank do %>
+            <%# <i class="fab fa-instagram"></i> %>
+          <%# end %>
         <%# end %>
       <%# end %>
-    <%# end %>
-    <%# if artist.quote %>
-      <%#= artist.quote if artist.quote.length > 0 %>
-      <%#= artist.quoted_by if artist.quoted_by.length > 0 %>
-    <%# end %>
-  </div>
-<% end %>
+      <%# if artist.quote %>
+        <%#= artist.quote if artist.quote.length > 0 %>
+        <%#= artist.quoted_by if artist.quoted_by.length > 0 %>
+      <%# end %>
+    </div>
+  <% end %>
+</div>
