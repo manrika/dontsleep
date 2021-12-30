@@ -1,22 +1,37 @@
-<h4>Newest artists</h4>
+<div id="home-heading">
+  <p>Newest artists</p>
+  <div class="underline"></div>
+</div>
 
-<% @new_artists.each do |artist| %>
-  <div>
-    <%= artist.name %>
-    <%= cl_image_tag artist.photo.key, height: 300, width: 400, crop: :fill if artist.photo.attached? %>
-    <% if artist.spotify %>
-      <% if artist.spotify.length > 0 %>
-        <%= link_to artist.spotify, target: :blank do %>
-          <i class="fab fa-spotify"></i>
-        <% end %>
-      <% end %>
-    <% end %>
-    <% if artist.instagram %>
-      <% if artist.instagram.length > 0 %>
-        <%= link_to artist.instagram, target: :blank do %>
-          <i class="fab fa-instagram"></i>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-<% end %>
+<div class="row flex-row flex-nowrap">
+  <% @new_artists.each do |artist| %>
+    <% color = @colors.sample %>
+    <div class="new-artist-card col-4">
+      <div class="img-container">
+        <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
+      </div>
+      <div class="new-artist-details">
+        <div class="text-highlighted">
+          <p><%= artist.name %></p>
+          <div class="underline" style="background-color: rgba(<%= color %>)"></div>
+        </div>
+        <div class="icons">
+          <% if artist.spotify %>
+            <% if artist.spotify.length > 0 %>
+              <%= link_to artist.spotify, target: :blank do %>
+                <i class="fab fa-spotify" style="color: rgba(<%= color %>)"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+          <% if artist.instagram %>
+            <% if artist.instagram.length > 0 %>
+              <%= link_to artist.instagram, target: :blank do %>
+                <i class="fab fa-instagram" style="color: rgba(<%= color %>)"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

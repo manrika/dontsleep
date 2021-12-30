@@ -1,0 +1,54 @@
+#home-heading {
+  position: fixed;
+  z-index: 1;
+  top: 100px;
+  left: 32px;
+
+  .underline {
+    height: 1px;
+    width: 80px;
+    background-color: rgb(235, 235, 235);
+  }
+
+  p {
+    margin-bottom: 4px;
+    color: rgb(235, 235, 235);
+    font-size: 18px;
+  }
+}
+
+// .scroll {
+//   overflow: scroll;
+// }
+
+.new-artist-card {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 100vh;
+  border: 1px solid black;
+
+  .img-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.new-artist-details {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  bottom: 120px;
+  z-index: 1;
+  padding: 28px;
+}
+
+.new-artist-card p {
+  color: white;
+}
