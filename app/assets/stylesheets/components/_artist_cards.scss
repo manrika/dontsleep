@@ -1,0 +1,43 @@
+// Front card style
+.front-card {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  width: 50vh;
+}
+
+.front-card img {
+  filter: grayscale(40%);
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
+
+.front-card p {
+  position: absolute;
+  font-weight: bolder;
+  font-size: 24px;
+  color: white;
+  z-index: 1;
+}
+
+// Grid layout - masonry effect
+.grid-item {
+  margin-bottom: 10px;
+  img {
+    width: 100%;
+  }
+}
+
+
+// Small-Medium screen
+@media only screen and (max-width: 800px) {
+  .grid-sizer, .grid-item { width: 100%; }
+}
+
+// Medium-Large screen
+@media only screen and (min-width: 800px) {
+  .grid-sizer, .grid-item { width: 48%; }
+}

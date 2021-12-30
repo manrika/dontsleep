@@ -1,6 +1,7 @@
-<div class="artists-list">
+<div class="grid">
+  <div class="grid-sizer"></div>
   <% artists.each do |artist| %>
-    <div class="front-card">
+    <div class="front-card grid-item">
       <p><%= artist.name %></p>
       <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
       <%# <%= "MANAGE" if artist.manage %>

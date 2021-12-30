@@ -18,3 +18,17 @@ require("channels")
 
 import "controllers"
 import "bootstrap"
+
+import Masonry from "masonry-layout";
+
+window.onload = () => {
+  const grid = document.querySelector('.grid');
+
+  const masonry = new Masonry(grid, {
+    itemSelector: '.grid-item',
+    gutter: 10,
+    transitionDuration: '0.6s',
+    percentPosition: true,
+    columnWidth: '.grid-sizer'
+  });
+};
