@@ -1,15 +1,11 @@
-<div class="grid">
-  <div class="grid-sizer"></div>
-  <% artists.each do |artist| %>
-    <% color = @colors.sample %>
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="front-card grid-item">
-          <p><%= artist.name %></p>
-          <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
-        </div>
-        <div class="back-card grid-item" style="border: 4px solid rgba(<%= color %>)">
-          <div class="artist-details">
+<div data-controller="reset-grid">
+  <div class="grid" data-reset-grid-target="grid">
+    <div class="grid-sizer"></div>
+    <% artists.each do |artist| %>
+      <div data-controller="toggle-card" data-action="click->reset-grid#reset">
+        <div class="front-card grid-item" data-action="click->toggle-card#toggle" data-toggle-card-target="card">
+          <p data-toggle-card-target="artistName"><%= artist.name %></p>
+          <div class="artist-details d-none" data-toggle-card-target="artistDetails">
             <% if artist.manage && artist.recording %>
               <span>MANAGE • RECORD</span>
             <% elsif artist.manage %>
@@ -20,29 +16,29 @@
             <div class="artist-heading">
               <div class="text-highlighted">
                 <p><%= artist.name %></p>
-                <div class="underline" style="background-color: rgba(<%= color %>)"></div>
+                <div class="underline" data-toggle-card-target="underline"></div>
               </div>
-              <div class="icons">
+              <div class="icons" data-toggle-card-target="icons">
                 <% if artist.spotify.length > 0 %>
                   <%= link_to artist.spotify, target: :blank do %>
-                    <i class="fab fa-spotify" style="color: rgba(<%= color %>)"></i>
+                    <i class="fab fa-spotify" data-toggle-card-target="spotify"></i>
                   <% end %>
                 <% end %>
                 <% if artist.instagram.length > 0 %>
                   <%= link_to artist.instagram, target: :blank do %>
-                    <i class="fab fa-instagram" style="color: rgba(<%= color %>)"></i>
+                    <i class="fab fa-instagram"></i>
                   <% end %>
                 <% end %>
               </div>
             </div>
             <% if artist.quote.length > 0 %>
-              <p class="quote" style="color: rgba(<%= color %>)"><%= "\"#{artist.quote}\"" if artist.quote.length > 0 %></p>
-              <p class="quoted-by" style="color: rgba(<%= color %>)"><%= artist.quoted_by if artist.quoted_by.length > 0 %></p>
+              <p class="quote" data-toggle-card-target="quote"><%= "\"#{artist.quote}\"" if artist.quote.length > 0 %></p>
+              <p class="quoted-by" data-toggle-card-target="quotedBy"><%= artist.quoted_by if artist.quoted_by.length > 0 %></p>
             <% end %>
           </div>
           <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
