@@ -12,25 +12,19 @@
         <div class="underline" style="background-color: rgba(<%= color %>)"></div>
       </div>
       <div class="icons">
-        <% if release.spotify_link %>
-          <% if release.spotify_link.length > 0 %>
-            <%= link_to release.spotify_link, target: :blank do %>
-              <i class="fab fa-spotify" style="color: rgba(<%= color %>)"></i>
-            <% end %>
+        <% if release.spotify && release.spotify_link.length > 0 %>
+          <%= link_to release.spotify_link, target: :blank do %>
+            <i class="fab fa-spotify" style="color: rgba(<%= color %>)"></i>
           <% end %>
         <% end %>
-        <% if release.apple %>
-          <% if release.apple.length > 0 %>
-            <%= link_to release.apple, target: :blank do %>
-              <i class="fab fa-apple" style="color: rgba(<%= color %>)"></i>
-            <% end %>
+        <% if release.apple && release.apple.length > 0 %>
+          <%= link_to release.apple, target: :blank do %>
+            <i class="fab fa-apple" style="color: rgba(<%= color %>)"></i>
           <% end %>
         <% end %>
-        <% if release.amazon %>
-          <% if release.amazon.length > 0 %>
-            <%= link_to release.amazon, target: :blank do %>
-              <i class="fab fa-amazon" style="color: rgba(<%= color %>)"></i>
-            <% end %>
+        <% if release.amazon && release.amazon.length > 0 %>
+          <%= link_to release.amazon, target: :blank do %>
+            <i class="fab fa-amazon" style="color: rgba(<%= color %>)"></i>
           <% end %>
         <% end %>
       </div>

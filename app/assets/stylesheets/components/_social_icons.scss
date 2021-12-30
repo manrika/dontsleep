@@ -1,0 +1,20 @@
+.icons {
+  display: flex;
+  gap: 16px;
+  font-size: 28px;
+  font-weight: bolder;
+
+  .fa-apple {
+    font-size: 29px;
+  }
+
+  a {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+
+    &:hover {
+      top: -10px;
+    }
+  }
+}

@@ -23,6 +23,44 @@
   z-index: 1;
 }
 
+// Back card style
+.back-card {
+  background-color: white;
+  img {
+    margin-top: 24px;
+  }
+}
+
+.artist-details {
+  padding: 28px 28px 0px 28px;
+  span {
+    color: #3E3E3E;
+    font-weight: lighter;
+  }
+}
+
+.artist-heading {
+  display: flex;
+  justify-content: space-between;
+
+  .text-highlighted {
+    margin-bottom: 0px;
+  }
+}
+
+.quote {
+  font-weight: bolder;
+  font-size: 22px;
+  padding: 20px 0px 4px 0px;
+  margin-bottom: 0px;
+}
+
+.quoted-by {
+  font-weight: light;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
 // Grid layout - masonry effect
 .grid-item {
   margin-bottom: 10px;
@@ -31,13 +69,12 @@
   }
 }
 
-
-// Small-Medium screen
+// Grid layout Small-Medium screen
 @media only screen and (max-width: 800px) {
   .grid-sizer, .grid-item { width: 100%; }
 }
 
-// Medium-Large screen
+// Grid layout Medium-Large screen
 @media only screen and (min-width: 800px) {
   .grid-sizer, .grid-item { width: 48%; }
 }

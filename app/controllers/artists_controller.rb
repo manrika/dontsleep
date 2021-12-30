@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :all_artists, only: [ :index, :editor_index ]
+  before_action :rand_color, only: [ :index, :editor_index ]
   before_action :find_artist, only: [ :edit, :update, :destroy ]
   skip_before_action :authenticate_user!, only: [ :index ]
 
@@ -49,6 +50,10 @@ class ArtistsController < ApplicationController
 
   def find_artist
     @artist = Artist.find(params[:id])
+  end
+
+  def rand_color
+    @colors = ["56, 176, 208, 1", "151, 124, 186, 1", "242, 86, 101, 0.79", "112, 198, 171, 1", "246, 192, 48, 1"]
   end
 
   def artist_params
