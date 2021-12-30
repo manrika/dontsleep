@@ -1,10 +1,13 @@
 import { Controller } from "@hotwired/stimulus";
-import Masonry from "masonry-layout";
+import { useClickOutside } from "stimulus-use";
 
 
 export default class extends Controller {
   static targets = ['card', 'artistName', 'artistDetails', 'quote', 'quotedBy', 'underline'];
 
+  connect() {
+    useClickOutside(this);
+  }
 
   toggle() {
     this.cardTarget.classList.toggle("front-card");
@@ -26,9 +29,15 @@ export default class extends Controller {
 
     const underline = this.artistDetailsTarget.querySelector('.underline');
     underline.style.backgroundColor = `rgba(${randColor})`;
+  }
 
+  clickOutside() {
+    console.log("outside bwoi");
+    console.log(this.cardTarget);
+    this.cardTarget.style.border = "none";
+    this.cardTarget.classList.add("front-card");
+    this.cardTarget.classList.remove("back-card");
+    this.artistDetailsTarget.classList.add("d-none");
+    this.artistNameTarget.classList.remove("d-none");
   }
 }
-
-// when click anywhere outside of the target return to initial state
-// you did this before with outside.modal ting
