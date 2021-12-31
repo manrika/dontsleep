@@ -28,3 +28,23 @@
   height: fit-content;
   width: fit-content;
 }
+
+.dropdown-menu {
+  border: none;
+  border-radius: 0px;
+  padding: 0px;
+  width: 200px;
+}
+
+.dropdown-item {
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 14px;
+  &:active {
+    background-color: #bdbfc2;
+  }
+}
+
+#transparent-nav .dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.7);
+}
