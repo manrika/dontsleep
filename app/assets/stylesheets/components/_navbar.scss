@@ -11,13 +11,29 @@
   width: 40px;
 }
 
-#transparent-nav {
+.topnavbar {
   display: flex;
   justify-content: space-between;
   padding: 18px 28px;
+  width: 100%;
+}
+
+#transparent-nav {
   position: fixed;
   z-index: 1;
-  width: 100%;
+}
+
+#filled-nav {
+  background-color: white;
+  align-items: center;
+
+  img {
+    height: 38px;
+  }
+
+  .dropdown-menu {
+    margin-top: 22px;
+  }
 }
 
 #transparent-nav i {

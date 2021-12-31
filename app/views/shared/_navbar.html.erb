@@ -1,38 +1,29 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-  <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to root_path do %>
-            <%= image_tag "dontsleeplogo.png", height: '40' %>
-          <% end %>
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+<% if user_signed_in? %>
+  <div id="filled-nav" class="topnavbar">
+    <div class="dropdown">
+      <i class="fas fa-bars btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" style="color: black" href="<%= editor_path %>">✐ Editor</a>
+        <%= link_to "↳ Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <a class="dropdown-item" style="color: rgba(56, 176, 208, 1)" href="<%= about_path %>">About</a>
+        <a class="dropdown-item" style="color: rgba(151, 124, 186, 1)" href="<%= artists_path %>">Artists</a>
+        <a class="dropdown-item" style="color: rgba(242, 86, 101, 0.79)" href="<%= releases_path %>">Releases</a>
+        <a class="dropdown-item" style="color: rgba(112, 198, 171, 1)" href="<%= news_path %>">News</a>
+        <a class="dropdown-item" style="color: rgba(246, 192, 48, 1)" href="#">Shop</a>
+      </div>
+    </div>
+    <%= link_to root_path do %>
+      <%= image_tag "dontsleeplogo.png", height: '46' %>
+    <% end %>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn" %>
+    </div>
   </div>
-</div>
+<% else %>
+  <div id="filled-nav" class="topnavbar">
+    <%= render 'shared/nav_dropdown' %>
+    <%= link_to root_path do %>
+      <%= image_tag "dontsleeplogo.png", height: '46' %>
+    <% end %>
+  </div>
+<% end %>
