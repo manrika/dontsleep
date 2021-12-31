@@ -1,3 +1,5 @@
+<%= render 'shared/navbar' %>
+
 <h1>Edit <%= @artist.name %></h1>
 
 <%= simple_form_for @artist, url: update_artist_path(@artist)  do |f| %>
