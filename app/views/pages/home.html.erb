@@ -6,11 +6,9 @@
 <div class="row flex-row flex-nowrap">
   <% @new_artists.each do |artist| %>
     <% color = @colors.sample %>
-    <div class="new-artist-card col-4">
-      <div class="img-container">
-        <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
-      </div>
-      <div class="new-artist-details">
+    <%# ADD BG image to the card div %>
+    <div class="new-artist-card col-12 col-md-6" style="background-image: url('<%= cl_image_path artist.photo.key, crop: :fill %>')">
+      <div class="new-artist-details col-12">
         <div class="text-highlighted">
           <p><%= artist.name %></p>
           <div class="underline" style="background-color: rgba(<%= color %>)"></div>

@@ -1,3 +1,4 @@
+// Page heading
 #home-heading {
   position: fixed;
   z-index: 1;
@@ -17,36 +18,25 @@
   }
 }
 
-// .scroll {
-//   overflow: scroll;
-// }
-
+// Artist card
 .new-artist-card {
   display: flex;
   flex-direction: column;
-  width: 50vw;
   height: 100vh;
-  border: 1px solid black;
-
-  .img-container {
-    width: 100%;
-    height: 100%;
-  }
-
-  img {
-    display: flex;
-    width: 100%;
-    height: 100%;
-  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 0px;
 }
 
 .new-artist-details {
   display: flex;
   justify-content: space-between;
-  position: relative;
-  bottom: 120px;
+  position: absolute;
+  bottom: 0px;
   z-index: 1;
-  padding: 28px;
+  padding: 28px 32px 0px 32px;
 }
 
 .new-artist-card p {
