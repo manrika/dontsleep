@@ -1,0 +1,60 @@
+.editor-card {
+  p, i {
+    font-size: 24px;
+    color: black;
+  }
+}
+
+.editor-card img {
+  width: 400px;
+  height: 400px;
+}
+
+.editor-card {
+  padding: 0px;
+  background-color: white;
+  width: 400px;
+  margin-bottom: 18px;
+  transition: transform .4s;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.editor-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.editor-card .icons {
+  margin-bottom: 18px;
+}
+
+.add-card {
+  width: 400px;
+  height: 512px;
+  background-color: white;
+  text-align: center;
+
+  &:hover i {
+    color: #977cba;
+  }
+
+  &:hover p {
+    color: #977cba;
+    text-decoration: none;
+  }
+
+  i {
+    margin-top: 50%;
+    margin-bottom: 12px;
+    font-size: 32px;
+  }
+}
+
+a:hover {
+  text-decoration: none !important;
+}

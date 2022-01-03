@@ -13,6 +13,7 @@ class PagesController < ApplicationController
   end
 
   def editor_home
-
+    @artists = Artist.all.sort_by(&:id).reverse
+    @releases = Release.all.sort_by(&:id).reverse
   end
 end

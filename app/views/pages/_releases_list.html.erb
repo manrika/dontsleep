@@ -1,0 +1,29 @@
+<div class="editor-grid">
+  <%= link_to editor_releases_new_path do %>
+    <div class="editor-card add-card">
+      <i class="fas fa-plus-circle"></i>
+      <p>New release</p>
+    </div>
+  <% end %>
+  <% releases.each do |release| %>
+    <%= link_to edit_release_path(release) do %>
+      <div class="editor-card">
+        <%= cl_image_tag release.photo.key if release.photo.attached? %>
+        <div class="artist-details">
+          <span><%= release.artist_name %></span>
+          <div class="artist-heading">
+            <p><%= release.track_title %></p>
+            <div class="icons">
+              <%= link_to edit_release_path(release) do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+              <%= link_to delete_release_path(release), method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

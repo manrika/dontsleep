@@ -1,14 +1,11 @@
 class ArtistsController < ApplicationController
-  before_action :all_artists, only: [ :index, :editor_index ]
   before_action :find_artist, only: [ :edit, :update, :destroy ]
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
+    @artists = Artist.all.sort_by(&:id).reverse
     @recording_artists = Artist.where(recording: true).sort_by(&:id).reverse
     @managing_artists = Artist.where(manage: true).sort_by(&:id).reverse
-  end
-
-  def editor_index
   end
 
   def new
@@ -42,10 +39,6 @@ class ArtistsController < ApplicationController
   end
 
   private
-
-  def all_artists
-    @artists = Artist.all.sort_by(&:id).reverse
-  end
 
   def find_artist
     @artist = Artist.find(params[:id])

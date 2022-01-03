@@ -1,6 +1,28 @@
 <%= render 'shared/navbar' %>
 
-<h1>Welcome to editor page</h1>
+<div class="page-layout">
+  <h1>Welcome to editor page</h1>
 
-<%= link_to "artists", editor_artists_path %>
-<%= link_to "releases", editor_releases_path %>
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+        <p>Artists</p>
+        <div class="tab-underline"></div>
+      </a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+        <p>Releases</p>
+        <div class="tab-underline"></div>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <%= render 'artists_list', artists: @artists %>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <%= render 'releases_list', releases: @releases %>
+    </div>
+  </div>
+</div>
