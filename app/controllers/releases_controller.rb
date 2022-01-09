@@ -15,7 +15,7 @@ class ReleasesController < ApplicationController
     @release = Release.new(release_params)
     @release.user = current_user
     if @release.save
-      redirect_to editor_releases_path
+      redirect_to editor_path
     else
       render :new
     end
@@ -26,7 +26,7 @@ class ReleasesController < ApplicationController
 
   def update
     if @release.update(release_params)
-      redirect_to editor_releases_path
+      redirect_to editor_path
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class ReleasesController < ApplicationController
 
   def destroy
     @release.destroy!
-    redirect_to editor_releases_path
+    redirect_to editor_path
   end
 
   private

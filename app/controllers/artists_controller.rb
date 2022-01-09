@@ -16,7 +16,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
     @artist.user = current_user
     if @artist.save
-      redirect_to editor_artists_path
+      redirect_to editor_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class ArtistsController < ApplicationController
 
   def update
     if @artist.update(artist_params)
-      redirect_to editor_artists_path
+      redirect_to editor_path
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class ArtistsController < ApplicationController
 
   def destroy
     @artist.destroy!
-    redirect_to editor_artists_path
+    redirect_to editor_path
   end
 
   private

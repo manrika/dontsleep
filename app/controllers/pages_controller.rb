@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
   def editor_home
     @releases = Release.all.sort_by(&:id).reverse
+    @artist = Artist.new
   end
 
   private

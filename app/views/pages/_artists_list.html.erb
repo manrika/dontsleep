@@ -1,10 +1,10 @@
 <div class="editor-grid">
-  <%= link_to editor_artists_new_path do %>
-    <div class="editor-card add-card">
+  <%#= link_to editor_artists_new_path do %>
+    <div class="editor-card add-card" data-toggle="modal" data-target="#exampleModal">
       <i class="fas fa-plus-circle"></i>
       <p>New artist</p>
     </div>
-  <% end %>
+  <%# end %>
   <% artists.each do |artist| %>
     <%= link_to edit_artist_path(artist) do %>
       <div class="editor-card">
@@ -32,4 +32,39 @@
       </div>
     <% end %>
   <% end %>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create new artist</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @artist, url: create_artist_path do |f| %>
+          <%= f.input :name %>
+          <%= f.input :quote %>
+          <%= f.input :quoted_by %>
+          <%= f.input :spotify %>
+          <%= f.input :instagram %>
+          <%= f.input :manage %>
+          <%= f.input :recording %>
+          <%= f.input :photo, class: "btn btn-primary", as: :file %>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit value: "Create", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
