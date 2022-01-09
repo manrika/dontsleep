@@ -5,12 +5,12 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" style="color: black" href="<%= editor_path %>">✐ Editor</a>
         <%= link_to "↳ Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        <a class="dropdown-item" style="color: #adb5bd" href="<%= root_path %>">Home</a>
-        <a class="dropdown-item" style="color: rgba(56, 176, 208, 1)" href="<%= about_path %>">About</a>
-        <a class="dropdown-item" style="color: rgba(151, 124, 186, 1)" href="<%= artists_path %>">Artists</a>
-        <a class="dropdown-item" style="color: rgba(242, 86, 101, 0.79)" href="<%= releases_path %>">Releases</a>
-        <a class="dropdown-item" style="color: rgba(112, 198, 171, 1)" href="<%= news_path %>">News</a>
-        <a class="dropdown-item" style="color: rgba(246, 192, 48, 1)" href="https://dontsleep.ochre.store/" target="_blank">Shop</a>
+        <a class="dropdown-item" href="<%= root_path %>">Home</a>
+        <a class="dropdown-item" href="<%= about_path %>">About</a>
+        <a class="dropdown-item" href="<%= artists_path %>">Artists</a>
+        <a class="dropdown-item" href="<%= releases_path %>">Releases</a>
+        <a class="dropdown-item" href="<%= news_path %>">News</a>
+        <a class="dropdown-item" href="https://dontsleep.ochre.store/" target="_blank">Shop</a>
       </div>
     </div>
     <%= link_to root_path do %>
