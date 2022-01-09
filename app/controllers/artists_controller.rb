@@ -8,28 +8,21 @@ class ArtistsController < ApplicationController
     @managing_artists = Artist.where(manage: true).sort_by(&:id).reverse
   end
 
-  def new
-    @artist = Artist.new
-  end
-
   def create
     @artist = Artist.new(artist_params)
     @artist.user = current_user
     if @artist.save
       redirect_to editor_path
     else
-      render :new
+      redirect_to editor_path
     end
-  end
-
-  def edit
   end
 
   def update
     if @artist.update(artist_params)
       redirect_to editor_path
     else
-      render :edit
+      redirect_to editor_path
     end
   end
 

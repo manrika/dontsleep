@@ -7,28 +7,21 @@ class ReleasesController < ApplicationController
     @colors = ["56, 176, 208, 1", "151, 124, 186, 1", "242, 86, 101, 0.79", "112, 198, 171, 1", "246, 192, 48, 1"]
   end
 
-  def new
-    @release = Release.new
-  end
-
   def create
     @release = Release.new(release_params)
     @release.user = current_user
     if @release.save
       redirect_to editor_path
     else
-      render :new
+      redirect_to editor_path
     end
-  end
-
-  def edit
   end
 
   def update
     if @release.update(release_params)
       redirect_to editor_path
     else
-      render :edit
+      redirect_to editor_path
     end
   end
 
