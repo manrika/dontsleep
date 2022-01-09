@@ -14,6 +14,10 @@ p {
   color: rgba(112, 198, 171, 1);
   span {
     color:rgba(242, 86, 101, 0.79);
+
+    &:hover {
+      color: #977CBA;
+    }
   }
 }
 
