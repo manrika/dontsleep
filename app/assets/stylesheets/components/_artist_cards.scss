@@ -8,17 +8,25 @@
 }
 
 .front-card img {
-  filter: grayscale(40%);
+  filter: grayscale(60%);
+}
 
-  &:hover {
+.front-card:hover {
+  img {
     filter: grayscale(0%);
   }
+  p {
+    font-size: 32px;
+    letter-spacing: 1px;
+    font-weight: 800;
+  }
 }
+
 
 .front-card p {
   position: absolute;
   font-weight: bolder;
-  font-size: 24px;
+  font-size: 28px;
   color: white;
   z-index: 1;
 }
