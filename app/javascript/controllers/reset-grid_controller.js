@@ -4,6 +4,10 @@ import Masonry from "masonry-layout";
 export default class extends Controller {
   static targets = ['grid'];
 
+  connect() {
+    console.log("reset grid connected")
+  };
+
   reset() {
     const grid = this.gridTarget
     const msnry = new Masonry(grid, {

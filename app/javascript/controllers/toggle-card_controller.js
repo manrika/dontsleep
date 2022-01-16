@@ -6,7 +6,8 @@ export default class extends Controller {
   static targets = ['card', 'artistName', 'artistDetails', 'quote', 'quotedBy', 'underline'];
 
   connect() {
-    useClickOutside(this);
+    console.log("toggle card connected");
+    // useClickOutside(this);
   }
 
   toggle() {
