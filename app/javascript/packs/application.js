@@ -21,9 +21,10 @@ import "bootstrap"
 
 import Masonry from "masonry-layout";
 
-window.onload = () => {
-  console.log("window loaded");
-  const grid = document.querySelector('.grid');
+// Masonry init function
+const masonryInit = (tabGrid) => {
+  console.log("masonry init");
+  const grid = document.querySelector(tabGrid);
 
   const masonry = new Masonry(grid, {
     itemSelector: '.grid-item',
@@ -33,6 +34,61 @@ window.onload = () => {
     columnWidth: '.grid-sizer'
   });
 };
+
+window.onload = () => {
+  console.log("window loaded");
+  masonryInit('#pills-home .grid');
+};
+
+// Set masonry effect on All tab
+const allTab = document.querySelectorAll('#pills-tab a')[0];
+
+$(allTab).on('shown.bs.tab', function (e) {
+  console.log("SETTING masonry effect for home tab");
+  masonryInit('#pills-home .grid');
+  console.log("SET for home tab");
+});
+
+// Select artists nav item
+const artistNavItem = document.querySelector('.artists-nav-item');
+const event = new Event('build');
+
+artistNavItem.addEventListener('build', (event) => {
+  console.log('clicked nav item');
+
+
+  // location.reload();
+  event.preventDefault();
+}, false);
+
+artistNavItem.dispatchEvent(event);
+
+// Set masonry effect on All tab
+$(allTab).on('show.bs.tab', function (e) {
+    console.log("SETTING masonry effect for home tab");
+    masonryInit('#pills-home .grid');
+    console.log("SET for home tab");
+});
+
+
+
+// Set masonry effect on Recording tab
+const recTab = document.querySelectorAll('#pills-tab a')[1];
+
+$(recTab).on('shown.bs.tab', function (e) {
+    console.log("SETTING masonry effect for recording tab");
+    masonryInit('#pills-profile .grid');
+    console.log("SET for recording tab");
+});
+
+// Set masonry effect on Management tab
+const mngTab = document.querySelectorAll('#pills-tab a')[2];
+
+$(mngTab).on('shown.bs.tab', function (e) {
+    console.log("SETTING masonry effect for mng tab");
+    masonryInit('#pills-contact .grid');
+    console.log("SET for mng tab");
+});
 
 // // Hamburger icon animation
 // $(document).ready(function () {
