@@ -22,6 +22,7 @@ import "bootstrap"
 import Masonry from "masonry-layout";
 
 window.onload = () => {
+  console.log("window loaded");
   const grid = document.querySelector('.grid');
 
   const masonry = new Masonry(grid, {
@@ -33,9 +34,9 @@ window.onload = () => {
   });
 };
 
-// Hamburger icon animation
-$(document).ready(function () {
-  $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
-    $(this).toggleClass('open');
-  });
-});
+// // Hamburger icon animation
+// $(document).ready(function () {
+//   $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
+//     $(this).toggleClass('open');
+//   });
+// });
