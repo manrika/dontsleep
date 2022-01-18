@@ -18,8 +18,14 @@ require("channels")
 
 import "controllers"
 import "bootstrap"
-
 import Masonry from "masonry-layout";
+
+// // Hamburger icon animation
+// $(document).ready(function () {
+//   $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
+//     $(this).toggleClass('open');
+//   });
+// });
 
 // Masonry init function
 const masonryInit = (tabGrid) => {
@@ -35,41 +41,14 @@ const masonryInit = (tabGrid) => {
   });
 };
 
-window.onload = () => {
-  console.log("window loaded");
-  masonryInit('#pills-home .grid');
-};
-
 // Set masonry effect on All tab
-const allTab = document.querySelectorAll('#pills-tab a')[0];
+// const allTab = document.querySelectorAll('#pills-tab a')[0];
 
-$(allTab).on('shown.bs.tab', function (e) {
-  console.log("SETTING masonry effect for home tab");
-  masonryInit('#pills-home .grid');
-  console.log("SET for home tab");
-});
-
-// Select artists nav item
-const artistNavItem = document.querySelector('.artists-nav-item');
-const event = new Event('build');
-
-artistNavItem.addEventListener('build', (event) => {
-  console.log('clicked nav item');
-
-
-  // location.reload();
-  event.preventDefault();
-}, false);
-
-artistNavItem.dispatchEvent(event);
-
-// Set masonry effect on All tab
-$(allTab).on('show.bs.tab', function (e) {
-    console.log("SETTING masonry effect for home tab");
-    masonryInit('#pills-home .grid');
-    console.log("SET for home tab");
-});
-
+// $(allTab).on('shown.bs.tab', function (e) {
+//   console.log("SETTING masonry effect for home tab");
+//   masonryInit('#pills-home .grid');
+//   console.log("SET for home tab");
+// });
 
 
 // Set masonry effect on Recording tab
@@ -89,10 +68,3 @@ $(mngTab).on('shown.bs.tab', function (e) {
     masonryInit('#pills-contact .grid');
     console.log("SET for mng tab");
 });
-
-// // Hamburger icon animation
-// $(document).ready(function () {
-//   $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
-//     $(this).toggleClass('open');
-//   });
-// });
