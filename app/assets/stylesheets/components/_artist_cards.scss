@@ -4,11 +4,15 @@
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-  width: 50vh;
+  width: 500px;
+  height: 600px;
+  background-position: center;
+  background-size: cover;
 }
 
 .front-card img {
-  filter: grayscale(60%);
+  // filter: grayscale(60%);
+  width: 100%;
 }
 
 .front-card:hover {
@@ -34,6 +38,7 @@
 // Back card style
 .back-card {
   background-color: white;
+  width: 100%;
   img {
     margin-top: 24px;
   }
@@ -50,6 +55,8 @@
 .artist-heading {
   display: flex;
   justify-content: space-between;
+  font-weight: 900;
+  letter-spacing: 0.5px;
 
   .text-highlighted, .icons {
     margin-bottom: 0px;
@@ -57,7 +64,7 @@
 }
 
 .quote {
-  font-weight: bolder;
+  font-weight: 800;
   font-size: 22px;
   padding: 20px 0px 4px 0px;
   margin-bottom: 0px;
@@ -69,20 +76,22 @@
   margin-bottom: 0px;
 }
 
-// Grid layout - masonry effect
-.grid-item {
-  margin-bottom: 10px;
+
+// Grid
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.outer-artist-card {
+  display: flex;
+  flex-grow: 1;
+  width: 500px;
+  height: 600px;
+  overflow: hidden;
+
   img {
     width: 100%;
   }
-}
-
-// Grid layout Small-Medium screen
-@media only screen and (max-width: 800px) {
-  .grid-sizer, .grid-item { width: 100%; }
-}
-
-// Grid layout Medium-Large screen
-@media only screen and (min-width: 800px) {
-  .grid-sizer, .grid-item { width: 48%; }
 }

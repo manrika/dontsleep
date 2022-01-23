@@ -1,11 +1,13 @@
-<%# <div data-controller="reset-grid"> %>
-  <div class="grid" data-reset-grid-target="grid">
-    <div class="grid-sizer"></div>
-    <% artists.each do |artist| %>
-      <div data-controller="toggle-card" data-action="click->reset-grid#reset">
-        <div class="front-card grid-item" data-action="click->toggle-card#toggle" data-toggle-card-target="card">
+<div class="grid">
+  <% artists.each do |artist| %>
+    <% color = @colors.sample %>
+    <div class="outer-artist-card" data-controller="toggle-card">
+      <div class="outer-artist-card" data-action="click->toggle-card#toggle">
+        <div class="front-card" data-toggle-card-target="frontCard" style="background-image: url('<%= cl_image_path artist.photo.key, crop: :fill %>')">
           <p data-toggle-card-target="artistName"><%= artist.name %></p>
-          <div class="artist-details d-none" data-toggle-card-target="artistDetails">
+        </div>
+        <div class="back-card d-none" data-toggle-card-target="backCard" style="border: 4px solid rgba(<%= color %>)">
+          <div class="artist-details">
             <% if artist.manage && artist.recording %>
               <span>MANAGE • RECORD</span>
             <% elsif artist.manage %>
@@ -16,29 +18,29 @@
             <div class="artist-heading">
               <div class="text-highlighted">
                 <p><%= artist.name %></p>
-                <div class="underline" data-toggle-card-target="underline"></div>
+                <div class="underline" data-toggle-card-target="underline" style="background-color: rgba(<%= color %>)"></div>
               </div>
               <div class="icons" data-toggle-card-target="icons">
                 <% if artist.spotify.length > 0 %>
                   <%= link_to artist.spotify, target: :blank do %>
-                    <i class="fab fa-spotify" data-toggle-card-target="spotify"></i>
+                    <i class="fab fa-spotify" data-toggle-card-target="spotify" style="color: rgba(<%= color %>)"></i>
                   <% end %>
                 <% end %>
                 <% if artist.instagram.length > 0 %>
                   <%= link_to artist.instagram, target: :blank do %>
-                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-instagram" style="color: rgba(<%= color %>)"></i>
                   <% end %>
                 <% end %>
               </div>
             </div>
             <% if artist.quote.length > 0 %>
-              <p class="quote" data-toggle-card-target="quote"><%= "\"#{artist.quote}\"" if artist.quote.length > 0 %></p>
-              <p class="quoted-by" data-toggle-card-target="quotedBy"><%= artist.quoted_by if artist.quoted_by.length > 0 %></p>
+              <p class="quote" data-toggle-card-target="quote" style="color: rgba(<%= color %>)"><%= "\"#{artist.quote}\"" if artist.quote.length > 0 %></p>
+              <p class="quoted-by" data-toggle-card-target="quotedBy" style="color: rgba(<%= color %>)"><%= artist.quoted_by if artist.quoted_by.length > 0 %></p>
             <% end %>
           </div>
           <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
         </div>
       </div>
-    <% end %>
-  </div>
-<%# </div> %>
+    </div>
+  <% end %>
+</div>

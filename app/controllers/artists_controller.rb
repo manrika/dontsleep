@@ -6,6 +6,7 @@ class ArtistsController < ApplicationController
     @artists = Artist.all.sort_by(&:id).reverse
     @recording_artists = Artist.where(recording: true).sort_by(&:id).reverse
     @managing_artists = Artist.where(manage: true).sort_by(&:id).reverse
+    @colors = ["56, 176, 208, 1", "151, 124, 186, 1", "242, 86, 101, 0.79", "112, 198, 171, 1", "246, 192, 48, 1"]
   end
 
   def create
@@ -40,5 +41,4 @@ class ArtistsController < ApplicationController
   def artist_params
     params.require(:artist).permit(:name, :quote, :manage, :recording, :spotify, :instagram, :quoted_by, :photo)
   end
-
 end
