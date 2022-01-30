@@ -1,9 +1,19 @@
 <%= render 'shared/navbar' %>
 
-<div class="page-layout" >
+<div class="page-layout" id="news=page" data-controller="load-news">
   <h1 style="color: rgba(112, 198, 171, 1)">News</h1>
-
-  <div data-controller="remove-insta-head">
-    <div data-remove-insta-head-target="instaDiv" class="embedsocial-hashtag" data-ref="bf5d503558dcf96f36d4569411bfbfc32581e1dc"></div><script>(function(d, s, id){var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js);}(document, "script", "EmbedSocialHashtagScript"));</script>
-  </div>
+  <div class="embedsocial-hashtag" data-ref="bf5d503558dcf96f36d4569411bfbfc32581e1dc"></div>
+  <script>
+    (function(d, s, id){
+      console.log("instagram feed function")
+      var js; 
+      if (d.getElementById(id)) {return;} 
+      js = d.createElement(s); 
+      js.id = id; 
+      js.src = "https://embedsocial.com/cdn/ht.js"; 
+      d.getElementsByTagName("head")[0].appendChild(js);
+      }
+      (document, "script", "EmbedSocialHashtagScript")
+    );
+  </script>
 </div>
