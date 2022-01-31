@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  before_action :find_artist, only: [ :edit, :update, :destroy ]
+  before_action :find_artist, only: [ :edit, :update, :destroy, :move ]
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
@@ -25,6 +25,11 @@ class ArtistsController < ApplicationController
     else
       redirect_to editor_path
     end
+  end
+
+  def move
+    @artist.insert_at(params[:position].to_i)
+    head :ok
   end
 
   def destroy

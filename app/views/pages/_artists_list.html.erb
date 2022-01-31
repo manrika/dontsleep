@@ -3,62 +3,61 @@
     <i class="fas fa-plus-circle"></i>
     <p>New artist</p>
   </div>
-  <% counter = 1 %>
-  <% artists.each do |artist| %>
-    <% lego = "#editArtistModal" %>
-    <% legoid = "editArtistModal" %>
-    <div class="editor-card" data-toggle="modal" data-target=<%= "##{artist.name}" %>>
-      <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
-      <div class="artist-details">
-        <% if artist.manage && artist.recording %>
-          <span>MANAGE • RECORD</span>
-        <% elsif artist.manage %>
-          <span>MANAGE</span>
-        <% else %>
-          <span>RECORD</span>
-        <% end %>
-        <div class="artist-heading">
-          <p><%= artist.name %></p>
-          <div class="icons">
-            <a data-toggle="modal" data-target=<%= lego %>><i class="fas fa-edit"></i></a>
-            <%= link_to delete_artist_path(artist), method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
-              <i class="fas fa-trash"></i>
-            <% end %>
+  <div data-controller="drag" data-drag-url="/editor/artists/:id/move">
+    <% artists.order(position: :asc).each do |artist| %>
+      <div class="editor-card" data-id=<%= artist.id  %> data-toggle="modal" data-target=<%= "##{artist.name}" %>>
+        <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
+        <div class="artist-details">
+          <% if artist.manage && artist.recording %>
+            <span>MANAGE • RECORD</span>
+          <% elsif artist.manage %>
+            <span>MANAGE</span>
+          <% else %>
+            <span>RECORD</span>
+          <% end %>
+          <div class="artist-heading">
+            <p><%= artist.name %></p>
+            <div class="icons">
+              <a data-toggle="modal" data-target=<%= "##{artist.name}" %>><i class="fas fa-edit"></i></a>
+              <%= link_to delete_artist_path(artist), method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Edit artist modal -->
-    <div class="modal fade" id=<%= artist.name %> tabindex="-1" aria-labelledby="editArtistModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editArtistModalLabel">Edit artist</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= simple_form_for artist, url: update_artist_path(artist)  do |f| %>
-              <%= f.input :name %>
-              <%= f.input :quote %>
-              <%= f.input :quoted_by %>
-              <%= f.input :spotify, placeholder: 'Open artist in Spotify > Share > Copy link to artist' %>
-              <%= f.input :instagram %>
-              <%= f.input :manage, label: :management %>
-              <%= f.input :recording %>
-              <p style="font-size: 16px; font-weight: 400"><strong>Image size:</strong> Preference 1MB or less</p>
-              <%= f.input :photo, label: false, class: "btn btn-primary", as: :file %>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">CANCEL</button>
-              <%= f.submit value: "SAVE", class: "btn btn-primary" %>
-            <% end %>
+      <!-- Edit artist modal -->
+      <div class="modal fade" id=<%= artist.name %> tabindex="-1" aria-labelledby="editArtistModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editArtistModalLabel">Edit artist</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for artist, url: update_artist_path(artist)  do |f| %>
+                <%= f.input :name %>
+                <%= f.input :quote %>
+                <%= f.input :quoted_by %>
+                <%= f.input :spotify, placeholder: 'Open artist in Spotify > Share > Copy link to artist' %>
+                <%= f.input :instagram %>
+                <%= f.input :manage, label: :management %>
+                <%= f.input :recording %>
+                <p style="font-size: 16px; font-weight: 400"><strong>Image size:</strong> Preference 1MB or less</p>
+                <%= f.input :photo, label: false, class: "btn btn-primary", as: :file %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">CANCEL</button>
+                <%= f.submit value: "SAVE", class: "btn btn-primary" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <!-- New artist modal -->
