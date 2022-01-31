@@ -8,15 +8,17 @@
         </button>
       </div>
       <div class="modal-body">
+        <p style="font-size: 16px; font-weight: 400"><strong>Spotify embed steps:</strong> Go to track/album > Share > Embed > Colour: Black, Size: Normal x 100% > Copy > Paste below</p>
+        <p style="font-size: 16px; font-weight: 400"><strong>Image size:</strong> Preference 1MB or less, square shape</p>
         <%= simple_form_for release, url: create_release_path do |f| %>
-          <%= f.input :track_title  %>
+          <%= f.input :track_title, label: :"track/album title" %>
           <%= f.input :artist_name %>
-          <%= f.input :spotify_link  %>
+          <%#= f.input :spotify_link  %>
           <%= f.input :spotify_embed  %>
           <%= f.input :apple  %>
-          <%= f.input :tidal  %>
+          <%#= f.input :tidal  %>
           <%= f.input :amazon  %>
-          <%= f.input :photo, class: "btn btn-primary", as: :file %>
+          <%= f.input :photo, label: :image, class: "btn btn-primary", as: :file %>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">CANCEL</button>

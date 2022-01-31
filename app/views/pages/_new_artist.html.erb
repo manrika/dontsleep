@@ -8,15 +8,16 @@
         </button>
       </div>
       <div class="modal-body">
+        <p style="font-size: 16px; font-weight: 400"><strong>Image size:</strong> Preference 1MB or less</p>
         <%= simple_form_for artist, url: create_artist_path do |f| %>
-          <%= f.input :name %>
+          <%= f.input :name,  placeholder: 'nicki' %>
           <%= f.input :quote %>
           <%= f.input :quoted_by %>
           <%= f.input :spotify %>
           <%= f.input :instagram %>
           <%= f.input :manage %>
           <%= f.input :recording %>
-          <%= f.input :photo, class: "btn btn-primary", as: :file %>
+          <%= f.input :photo, label: :image, class: "btn btn-primary", as: :file %>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">CANCEL</button>
