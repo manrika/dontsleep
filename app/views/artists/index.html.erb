@@ -25,13 +25,13 @@
   </ul>
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <%= render 'artist_list', artists: @artists %>
+      <%= render 'artist_list', artists: @artists.order(position: :asc) %>
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-      <%= render 'artist_list', artists: @recording_artists %>
+      <%= render 'artist_list', artists: @recording_artists.order(position: :asc) %>
     </div>
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-      <%= render 'artist_list', artists: @managing_artists %>
+      <%= render 'artist_list', artists: @managing_artists.order(position: :asc) %>
     </div>
   </div>
 </div>

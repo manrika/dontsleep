@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/editor/artists', to: 'artists#editor_index'
   post '/editor/artists', to: 'artists#create', as: :create_artist
   patch '/editor/artists/:id', to: 'artists#update', as: :update_artist
+  patch '/editor/artists/:id/move', to: 'artists#move', as: :move_artist
   delete '/editor/artists/:id', to: 'artists#destroy', as: :delete_artist
 
   get '/editor/releases', to: 'releases#editor_index'

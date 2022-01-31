@@ -1,11 +1,11 @@
 class ArtistsController < ApplicationController
-  before_action :find_artist, only: [ :edit, :update, :destroy ]
+  before_action :find_artist, only: [ :edit, :update, :destroy, :move ]
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @artists = Artist.all.sort_by(&:id).reverse
-    @recording_artists = Artist.where(recording: true).sort_by(&:id).reverse
-    @managing_artists = Artist.where(manage: true).sort_by(&:id).reverse
+    @artists = Artist.all
+    @recording_artists = Artist.where(recording: true)
+    @managing_artists = Artist.where(manage: true)
     @colors = ["56, 176, 208, 1", "151, 124, 186, 1", "242, 86, 101, 0.79", "112, 198, 171, 1", "246, 192, 48, 1"]
   end
 
@@ -25,6 +25,11 @@ class ArtistsController < ApplicationController
     else
       redirect_to editor_path
     end
+  end
+
+  def move
+    @artist.insert_at(params[:position].to_i)
+    head :ok
   end
 
   def destroy

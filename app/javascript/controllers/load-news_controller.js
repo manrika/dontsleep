@@ -13,9 +13,8 @@ connect() {
     const body = document.querySelector('body');
 
     if (iFrame == null) {
-        console.log("no iframe here");
-        instaDiv.insertAdjacentHTML("beforeend", iFrameElement); 
-        body.insertAdjacentHTML("beforeend", lastScript); 
+        instaDiv.insertAdjacentHTML("beforeend", iFrameElement);
+        body.insertAdjacentHTML("beforeend", lastScript);
     };
 }
 

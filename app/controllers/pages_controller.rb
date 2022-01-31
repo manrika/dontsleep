@@ -21,6 +21,6 @@ class PagesController < ApplicationController
   private
 
   def all_artists
-    @artists = Artist.all.sort_by(&:id).reverse
+    @artists = Artist.all
   end
 end

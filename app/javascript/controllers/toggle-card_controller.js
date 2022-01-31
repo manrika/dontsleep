@@ -6,7 +6,6 @@ export default class extends Controller {
   static targets = ['frontCard', 'artistName', 'backCard', 'quote', 'quotedBy', 'underline'];
 
   connect() {
-    console.log("toggle card connected");
     // useClickOutside(this);
   }
 
@@ -18,9 +17,6 @@ export default class extends Controller {
   clickOutside() {
     this.frontCardTarget.classList.remove("d-none");
     this.backCardTarget.classList.add("d-none");
-
-    console.log("outside bwoi");
-    console.log(this.cardTarget);
     this.cardTarget.style.border = "none";
     this.cardTarget.classList.add("front-card");
     this.cardTarget.classList.remove("back-card");
