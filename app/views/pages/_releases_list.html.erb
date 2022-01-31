@@ -4,14 +4,14 @@
     <p>New release</p>
   </div>
   <% releases.each do |release| %>
-    <div class="editor-card" data-toggle="modal" data-target="#editReleaseModal">
+    <div class="editor-card" data-toggle="modal" data-target=<%= "##{release.track_title}" %>>
       <%= cl_image_tag release.photo.key if release.photo.attached? %>
       <div class="artist-details">
         <span><%= release.artist_name %></span>
         <div class="artist-heading">
           <p><%= release.track_title %></p>
           <div class="icons">
-            <a data-toggle="modal" data-target="#editReleaseModal"><i class="fas fa-edit"></i></a>
+            <a data-toggle="modal" data-target=<%= "##{release.track_title}" %>><i class="fas fa-edit"></i></a>
             <%= link_to delete_release_path(release), method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
               <i class="fas fa-trash"></i>
             <% end %>
@@ -20,7 +20,34 @@
       </div>
     </div>
     <!-- Edit release modal -->
-    <%= render  'edit_release', release: release %>
+    <div class="modal fade" id=<%= release.track_title %> tabindex="-1" aria-labelledby="editReleaseModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editReleaseModalLabel">Edit artist</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for release, url: update_release_path(release) do |f| %>
+              <%= f.input :track_title  %>
+              <%= f.input :artist_name %>
+              <%= f.input :spotify_link  %>
+              <%= f.input :spotify_embed  %>
+              <%= f.input :apple  %>
+              <%= f.input :tidal  %>
+              <%= f.input :amazon  %>
+              <%= f.input :photo, class: "btn btn-primary", as: :file %>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">CANCEL</button>
+              <%= f.submit value: "SAVE", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
 
