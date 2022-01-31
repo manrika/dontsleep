@@ -4,7 +4,7 @@
     <p>New artist</p>
   </div>
   <div data-controller="drag" data-drag-url="/editor/artists/:id/move">
-    <% artists.order(position: :asc).each do |artist| %>
+    <% artists.each do |artist| %>
       <div class="editor-card" data-id=<%= artist.id  %> data-toggle="modal" data-target=<%= "##{artist.name}" %>>
         <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
         <div class="artist-details">
