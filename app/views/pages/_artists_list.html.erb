@@ -39,16 +39,16 @@
             </button>
           </div>
           <div class="modal-body">
-            <p style="font-size: 16px; font-weight: 400"><strong>Image size:</strong> Preference 1MB or less</p>
             <%= simple_form_for artist, url: update_artist_path(artist)  do |f| %>
               <%= f.input :name %>
               <%= f.input :quote %>
               <%= f.input :quoted_by %>
-              <%= f.input :spotify %>
+              <%= f.input :spotify, placeholder: 'Open artist in Spotify > Share > Copy link to artist' %>
               <%= f.input :instagram %>
-              <%= f.input :manage %>
+              <%= f.input :manage, label: :management %>
               <%= f.input :recording %>
-              <%= f.input :photo, label: :image, class: "btn btn-primary", as: :file %>
+              <p style="font-size: 16px; font-weight: 400"><strong>Image size:</strong> Preference 1MB or less</p>
+              <%= f.input :photo, label: false, class: "btn btn-primary", as: :file %>
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">CANCEL</button>
