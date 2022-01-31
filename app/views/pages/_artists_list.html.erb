@@ -3,8 +3,11 @@
     <i class="fas fa-plus-circle"></i>
     <p>New artist</p>
   </div>
+  <% counter = 1 %>
   <% artists.each do |artist| %>
-    <div class="editor-card" data-toggle="modal" data-target="#editArtistModal">
+    <% lego = "#editArtistModal" %>
+    <% legoid = "editArtistModal" %>
+    <div class="editor-card" data-toggle="modal" data-target=<%= "##{artist.name}" %>>
       <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
       <div class="artist-details">
         <% if artist.manage && artist.recording %>
@@ -17,7 +20,7 @@
         <div class="artist-heading">
           <p><%= artist.name %></p>
           <div class="icons">
-            <a data-toggle="modal" data-target="#editArtistModal"><i class="fas fa-edit"></i></a>
+            <a data-toggle="modal" data-target=<%= lego %>><i class="fas fa-edit"></i></a>
             <%= link_to delete_artist_path(artist), method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
               <i class="fas fa-trash"></i>
             <% end %>
@@ -26,7 +29,34 @@
       </div>
     </div>
     <!-- Edit artist modal -->
-    <%= render  'edit_artist', artist: artist %>
+    <div class="modal fade" id=<%= artist.name %> tabindex="-1" aria-labelledby="editArtistModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editArtistModalLabel">Edit artist</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for artist, url: update_artist_path(artist)  do |f| %>
+              <%= f.input :name %>
+              <%= f.input :quote %>
+              <%= f.input :quoted_by %>
+              <%= f.input :spotify %>
+              <%= f.input :instagram %>
+              <%= f.input :manage %>
+              <%= f.input :recording %>
+              <%= f.input :photo, class: "btn btn-primary", as: :file %>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">CANCEL</button>
+              <%= f.submit value: "SAVE", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
 
