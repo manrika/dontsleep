@@ -20,6 +20,12 @@ class PagesController < ApplicationController
     end
   end
 
+  def destroy
+    @subscriber = Subscriber.find(params[:id])
+    @subscriber.destroy!
+    redirect_to editor_path
+  end
+
   def news
   end
 
@@ -27,6 +33,7 @@ class PagesController < ApplicationController
     @releases = Release.all.sort_by(&:id).reverse
     @artist = Artist.new
     @release = Release.new
+    @subscribers = Subscriber.all
   end
 
   private

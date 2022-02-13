@@ -16,6 +16,12 @@
         <div class="tab-underline"></div>
       </a>
     </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-subscribers-tab" data-toggle="pill" href="#pills-subscribers" role="tab" aria-controls="pills-subscribers" aria-selected="false">
+        <p>Subscribers</p>
+        <div class="tab-underline"></div>
+      </a>
+    </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -23,6 +29,29 @@
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <%= render 'releases_list', releases: @releases %>
+    </div>
+    <div class="tab-pane fade" id="pills-subscribers" role="tabpanel" aria-labelledby="pills-subscribers-tab">
+      <div class="emails-list">
+        <% @subscribers.each do |subscriber| %>
+          <%= subscriber.email %>
+        <% end %>
+      </div>
+      <div class="mt-4 editor-grid">
+        <% @subscribers.each do |subscriber| %>
+          <div class="editor-card">
+            <div class="artist-details">
+              <div class="artist-heading">
+                <span><%= subscriber.email %></span>
+                <div class="icons">
+                  <%= link_to delete_subscriber_path(subscriber), method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

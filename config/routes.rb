@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/about', to: 'pages#about'
   post '/about', to: 'pages#create', as: :create_subscriber
+  delete '/editor/subscriber/:id', to: 'pages#destroy', as: :delete_subscriber
   get '/artists', to: 'artists#index'
   get '/releases', to: 'releases#index'
   get '/news', to: 'pages#news'
