@@ -34,6 +34,7 @@ class PagesController < ApplicationController
     @artist = Artist.new
     @release = Release.new
     @subscribers = Subscriber.all
+    @last_subscribed_date = Subscriber.last.created_at
   end
 
   private
