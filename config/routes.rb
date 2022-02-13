@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/about', to: 'pages#about'
+  post '/about', to: 'pages#create', as: :create_subscriber
   get '/artists', to: 'artists#index'
   get '/releases', to: 'releases#index'
   get '/news', to: 'pages#news'

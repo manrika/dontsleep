@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :about, :news]
+  skip_before_action :authenticate_user!, only: [ :home, :about, :news, :create]
   before_action :all_artists, only: [ :home, :editor_home ]
 
   def home
@@ -7,6 +7,17 @@ class PagesController < ApplicationController
   end
 
   def about
+    @subscriber = Subscriber.new
+    @sucess  = params[:format] ? true : false
+  end
+
+  def create
+    @subscriberr = Subscriber.new(subscriber_params)
+    if @subscriberr.save
+      redirect_to about_path(@subscriberr)
+    else
+      render :about
+    end
   end
 
   def news
@@ -22,5 +33,9 @@ class PagesController < ApplicationController
 
   def all_artists
     @artists = Artist.all
+  end
+
+  def subscriber_params
+    params.require(:subscriber).permit(:email)
   end
 end

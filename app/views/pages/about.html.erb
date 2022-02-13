@@ -18,6 +18,16 @@ WE LIVE IN LONDON AND WORK EVERYWHERE.</p>
     </a>
   </div>
 
+  <div class=<%= @sucess ? "d-none" : "display"  %>>
+    <%= simple_form_for @subscriber, url: create_subscriber_path do |f| %>
+      <%= f.input :email %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <p class=<%= @sucess ? "display" : "d-none" %>>Thank you for subscribing!</p>
+
+
   <p id="address">Don't Sleep.<br>
   Soho Works - The Tea Building<br>
   55 Shoreditch High Street<br>
