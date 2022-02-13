@@ -12,9 +12,9 @@ class PagesController < ApplicationController
   end
 
   def create
-    @subscriberr = Subscriber.new(subscriber_params)
-    if @subscriberr.save
-      redirect_to about_path(@subscriberr)
+    @subscriber = Subscriber.new(subscriber_params)
+    if @subscriber.save
+      redirect_to about_path(@subscriber)
     else
       render :about
     end
