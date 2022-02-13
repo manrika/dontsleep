@@ -1,4 +1,4 @@
-p {
+p, span {
   font-size: 32px;
   font-weight: 800;
 }
@@ -22,7 +22,7 @@ p {
 }
 
 i {
-  color: #977CBA;
+  color: rgba(242, 86, 101, 0.79);
   font-size: 32px;
 }
 
@@ -33,5 +33,49 @@ i {
 #address {
   font-size: 16px;
   line-height: 22px;
-  color: rgba(34, 171, 205, 0.6);
+  color: rgb(151, 124, 186);
+}
+
+.subscribe {
+  p {
+    color: rgba(34, 171, 205, 0.9);
+  }
+}
+
+.subscribe form {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 42px;
+
+  input {
+    height: 48px;
+    border-radius: 36px;
+  }
+
+  .submit {
+    border: none;
+    background-color: rgba(34, 171, 205, 0.8);
+    font-weight: 900;
+    color: white;
+    letter-spacing: 0.5px;
+    padding: 12px 58px;
+
+    &:hover {
+      background-color: rgba(34, 171, 205, 0.9);
+    }
+  }
+}
+
+#subscriber_email {
+  background-color: rgba(250, 250, 250, 0.6);
+  padding: 12px 22px;
+}
+
+.subscriber_email {
+  flex-grow: 1;
+}
+
+.success-msg {
+  margin-bottom: 42px;
+  color: rgba(34, 171, 205, 0.9);
 }

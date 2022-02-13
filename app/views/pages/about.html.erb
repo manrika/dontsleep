@@ -18,14 +18,17 @@ WE LIVE IN LONDON AND WORK EVERYWHERE.</p>
     </a>
   </div>
 
-  <div class=<%= @sucess ? "d-none" : "display"  %>>
+  <div class="<%= @sucess ? "d-none" : "display"  %> subscribe">
+    <p>Sign up for gigs, merch and releases</p>
     <%= simple_form_for @subscriber, url: create_subscriber_path do |f| %>
-      <%= f.input :email %>
-      <%= f.submit %>
+      <%= f.input :email, label: false, placeholder: "Enter your email" %>
+      <%= f.submit value: "SIGN UP", class: "submit" %>
     <% end %>
   </div>
 
-  <p class=<%= @sucess ? "display" : "d-none" %>>Thank you for subscribing!</p>
+  <div class="<%= @sucess ? "display" : "d-none" %> success-msg">
+    <p>thank you for subscribing!</p>
+  </div>
 
 
   <p id="address">Don't Sleep.<br>
