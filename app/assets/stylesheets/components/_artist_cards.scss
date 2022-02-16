@@ -11,7 +11,6 @@
 }
 
 .front-card img {
-  // filter: grayscale(60%);
   width: 100%;
 }
 
@@ -39,9 +38,8 @@
 .back-card {
   background-color: white;
   width: 100%;
-  img {
-    margin-top: 24px;
-  }
+  display: flex;
+  flex-direction: column;
 }
 
 .artist-details {
@@ -76,6 +74,17 @@
   margin-bottom: 0px;
 }
 
+.img-container {
+  flex-grow: 1;
+  margin-top: 24px;
+  height: 100px;
+
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
 
 // Grid
 .grid {
@@ -89,7 +98,6 @@
   flex-grow: 1;
   width: 500px;
   height: 600px;
-  overflow: hidden;
 
   img {
     width: 100%;

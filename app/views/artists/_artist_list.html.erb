@@ -3,7 +3,7 @@
     <% color = @colors.sample %>
     <div class="outer-artist-card" data-controller="toggle-card">
       <div class="outer-artist-card" data-action="click->toggle-card#toggle">
-        <div class="front-card" data-toggle-card-target="frontCard" style="background-image: url('<%= cl_image_path artist.photo.key, crop: :fill %>')">
+        <div class="front-card" data-toggle-card-target="frontCard" style="background-image: url('<%= cl_image_path artist.photo.key, crop: :fill %>'), linear-gradient( rgb(12 12 12 / 40%), rgb(0 149 255 / 45%) )">
           <p data-toggle-card-target="artistName"><%= artist.name %></p>
         </div>
         <div class="back-card d-none" data-toggle-card-target="backCard" style="border: 4px solid rgba(<%= color %>)">
@@ -38,7 +38,9 @@
               <p class="quoted-by" data-toggle-card-target="quotedBy" style="color: rgba(<%= color %>)"><%= artist.quoted_by if artist.quoted_by.length > 0 %></p>
             <% end %>
           </div>
-          <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
+          <div class="img-container">
+            <%= cl_image_tag artist.photo.key if artist.photo.attached? %>
+          </div>
         </div>
       </div>
     </div>
