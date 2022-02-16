@@ -30,13 +30,15 @@
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <%= render 'releases_list', releases: @releases %>
     </div>
-    <div class="tab-pane fade" id="pills-subscribers" role="tabpanel" aria-labelledby="pills-subscribers-tab">
+    <div class="tab-pane fade" id="pills-subscribers" role="tabpanel" aria-labelledby="pills-subscribers-tab" data-controller="copy-to-clipboard">
       <p>Last updated: <%= @last_subscribed_date.strftime("%b %e, %l:%M %p") %></span>
-      <div class="emails-list">
+      <div class="emails-list" data-copy-to-clipboard-target="textArea">
         <% @subscribers.each do |subscriber| %>
           <%= subscriber.email %>
         <% end %>
       </div>
+      <button class="copy-btn" data-action="click->copy-to-clipboard#copy">Copy text</button>
+
       <div class="mt-4 editor-grid">
         <% @subscribers.each do |subscriber| %>
           <div class="editor-card">
