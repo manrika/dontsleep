@@ -30,6 +30,10 @@ class PagesController < ApplicationController
   end
 
   def editor_home
+    @admin = current_user.admin
+    if @admin == false
+      redirect_to about_path
+    end
     @releases = Release.all.sort_by(&:id).reverse
     @artist = Artist.new
     @release = Release.new
