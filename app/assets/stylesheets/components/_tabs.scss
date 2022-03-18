@@ -35,12 +35,32 @@
 // Small-Medium screen
 @media only screen and (max-width: 800px) {
   #pills-tab .nav-link {
-    font-size: 16px;
     padding: 8px 10px;
+
+    p {
+      font-size: 24px;
+    }
   }
 }
 
-// Medium-Large screen
-@media only screen and (min-width: 800px) {
-  #pills-tab .nav-link { font-size: 24px; }
+// Small screen
+@media only screen and (max-width: 550px) {
+  #pills-tab .nav-link {
+    padding: 8px 8px;
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+// Tiny screen
+@media only screen and (max-width: 300px) {
+  #pills-tab .nav-link {
+    padding: 8px 6px;
+
+    p {
+      font-size: 12px;
+    }
+  }
 }

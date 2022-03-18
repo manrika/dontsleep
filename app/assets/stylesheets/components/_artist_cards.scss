@@ -93,6 +93,7 @@
   gap: 12px;
 }
 
+
 .outer-artist-card {
   display: flex;
   flex-grow: 1;
@@ -100,6 +101,12 @@
   height: 600px;
 
   img {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .outer-artist-card {
     width: 100%;
   }
 }
