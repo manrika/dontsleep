@@ -5,7 +5,6 @@ export default class extends Controller {
 
   scrollleft() {
     this.imagesTarget.scrollLeft -= window.innerWidth
-    console.log(this.imagesTarget.scrollLeft);
   }
 
   scrollright() {
