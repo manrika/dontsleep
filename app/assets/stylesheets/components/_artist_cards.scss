@@ -1,37 +1,51 @@
 // Front card style
-.front-card {
+.outer-front-card {
   display: flex;
   flex-grow: 1;
-  align-items: center;
-  justify-content: center;
   width: 500px;
   height: 600px;
+  position: relative;
+}
+
+.front-card-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-position: center;
   background-size: cover;
-}
-
-.front-card img {
   width: 100%;
-}
-
-.front-card:hover {
-  img {
-    filter: grayscale(0%);
-  }
-  p {
-    font-size: 32px;
-    letter-spacing: 1px;
-    font-weight: 800;
-  }
-}
-
-
-.front-card p {
+  height: 100%;
   position: absolute;
+}
+
+
+.front-card-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  background: rgba(112, 104, 117, 0.6);
+}
+
+.front-card-overlay p {
   font-weight: bolder;
   font-size: 28px;
   color: white;
   z-index: 1;
+}
+
+
+.front-card:hover {
+  .front-card-overlay {
+    background: rgba($color: #000000, $alpha: 0);
+    p {
+      font-size: 32px;
+      letter-spacing: 1px;
+      font-weight: 800;
+    }
+  }
 }
 
 // Back card style

@@ -3,7 +3,9 @@
     <div class="dropdown">
       <i class="fas fa-bars btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" style="color: black" href="<%= editor_path %>">✐ Editor</a>
+        <% if current_user.admin %>
+          <a class="dropdown-item" style="color: black" href="<%= editor_path %>">✐ Editor</a>
+        <% end %>
         <%= link_to "↳ Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         <a class="dropdown-item" href="<%= root_path %>">Home</a>
         <a class="dropdown-item" href="<%= about_path %>">About</a>
