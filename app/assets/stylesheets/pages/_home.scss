@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+.left-home-arrow {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 5%;
+  color: white;
+}
+
+.right-home-arrow {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 90%;
+  color: white;
+}

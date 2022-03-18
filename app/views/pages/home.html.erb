@@ -1,31 +1,36 @@
 <%= render 'shared/transp_nav' %>
 
-<div class="row flex-row flex-nowrap">
-  <% @artists.order(position: :asc).each do |artist| %>
-    <% color = @colors.sample %>
-    <div class="new-artist-card col-12 col-md-6" style="background-image: url('<%= cl_image_path artist.photo.key, crop: :fill %>')">
-      <div class="new-artist-details col-12">
-        <div class="text-highlighted">
-          <p><%= artist.name %></p>
-          <div class="underline" style="background-color: rgba(<%= color %>)"></div>
-        </div>
-        <div class="icons">
-          <% if artist.spotify %>
-            <% if artist.spotify.length > 0 %>
-              <%= link_to artist.spotify, target: :blank do %>
-                <i class="fab fa-spotify" style="color: rgba(<%= color %>)"></i>
+<div data-controller="home-scroll">
+  <i class="fas fa-solid fa-chevron-left left-home-arrow btn" data-action="click->home-scroll#scrollleft"></i>
+  <i class="fas fa-solid fa-chevron-right right-home-arrow btn" data-action="click->home-scroll#scrollright"></i>
+
+  <div class="row flex-row flex-nowrap m-0" style="position: relative; width: 100vw; overflow: scroll" data-home-scroll-target="images">
+    <% @artists.order(position: :asc).each do |artist| %>
+      <% color = @colors.sample %>
+      <div class="new-artist-card col-12 col-md-6" style="background-image: url('<%= cl_image_path artist.photo.key, crop: :fill %>')">
+        <div class="new-artist-details col-12">
+          <div class="text-highlighted">
+            <p><%= artist.name %></p>
+            <div class="underline" style="background-color: rgba(<%= color %>)"></div>
+          </div>
+          <div class="icons">
+            <% if artist.spotify %>
+              <% if artist.spotify.length > 0 %>
+                <%= link_to artist.spotify, target: :blank do %>
+                  <i class="fab fa-spotify" style="color: rgba(<%= color %>)"></i>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
-          <% if artist.instagram %>
-            <% if artist.instagram.length > 0 %>
-              <%= link_to artist.instagram, target: :blank do %>
-                <i class="fab fa-instagram" style="color: rgba(<%= color %>)"></i>
+            <% if artist.instagram %>
+              <% if artist.instagram.length > 0 %>
+                <%= link_to artist.instagram, target: :blank do %>
+                  <i class="fab fa-instagram" style="color: rgba(<%= color %>)"></i>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
